@@ -1,16 +1,17 @@
 def selection_sort(nums):
-    # This value of i corresponds to how many values were sorted
+    #Percorre o vetor inteiro
+    # O valor de i corresponde a quantos elementos foram ordenados
     for i in range(len(nums)):
-        # We assume that the first item of the unsorted segment is the smallest
+        # Assume-se que o primeiro elemento do segmento não ordenado é o menor
         lowest_value_index = i
-        # This loop iterates over the unsorted items
+        #Iteração pelos elementos não ordenados
         for j in range(i + 1, len(nums)):
+            #Verifica qual o menor valor
             if nums[j] < nums[lowest_value_index]:
                 lowest_value_index = j
-        # Swap values of the lowest unsorted element with the first unsorted
-        # element
+        
+        #Troca o menor elemento pelo primeiro elemento não ordenado
         nums[i], nums[lowest_value_index] = nums[lowest_value_index], nums[i]
 
 
 
-#

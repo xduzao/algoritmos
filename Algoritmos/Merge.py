@@ -2,30 +2,31 @@ def merge(left_list, right_list):
     sorted_list = []
     left_list_index = right_list_index = 0
 
-    # We use the list lengths often, so its handy to make variables
+   
     left_list_length, right_list_length = len(left_list), len(right_list)
 
     for _ in range(left_list_length + right_list_length):
         if left_list_index < left_list_length and right_list_index < right_list_length:
-            # We check which value from the start of each list is smaller
-            # If the item at the beginning of the left list is smaller, add it
-            # to the sorted list
+            
+            # Verifica se o elemento do começo de cada lista é menor
+            # Caso o elemento no começo da lista da esquerda é menor, adiciona-o
+            # à lista ordenada
             if left_list[left_list_index] <= right_list[right_list_index]:
                 sorted_list.append(left_list[left_list_index])
                 left_list_index += 1
-            # If the item at the beginning of the right list is smaller, add it
-            # to the sorted list
+            # Caso o elemento no começo da lista da direita é  menor, adiciona-o
+            # à lista ordenada
             else:
                 sorted_list.append(right_list[right_list_index])
                 right_list_index += 1
 
-        # If we've reached the end of the of the left list, add the elements
-        # from the right list
+        # Caso seja o final da lista da esquerda, adicionam-se os elementos
+        # da lista da direita
         elif left_list_index == left_list_length:
             sorted_list.append(right_list[right_list_index])
             right_list_index += 1
-        # If we've reached the end of the of the right list, add the elements
-        # from the left list
+        # Caso seja o final da lista da direita, adicionam-se os elementos
+        # da lista da esquerda
         elif right_list_index == right_list_length:
             sorted_list.append(left_list[left_list_index])
             left_list_index += 1
@@ -34,18 +35,18 @@ def merge(left_list, right_list):
 
 
 def merge_sort(nums):
-    # If the list is a single element, return it
+    # Se a lista contém apenas um elemento, a retorna
     if len(nums) <= 1:
         return nums
 
-    # Use floor division to get midpoint, indices must be integers
+    # Divide para pegar o índice do meio
     mid = len(nums) // 2
 
-    # Sort and merge each half
+    # Ordena e faz o merge de cada metade
     left_list = merge_sort(nums[:mid])
     right_list = merge_sort(nums[mid:])
 
-    # Merge the sorted lists into a new one
+    # Combina as listas em uma só
     return merge(left_list, right_list)
 
 

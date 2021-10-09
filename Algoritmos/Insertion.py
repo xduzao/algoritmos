@@ -1,15 +1,17 @@
 def insertion_sort(nums):
-    # Start on the second element as we assume the first element is sorted
+    # Começa pelo segundo elemento, assume-se que o 
+    # primeito elemento já está ordenado
     for i in range(1, len(nums)):
         item_to_insert = nums[i]
-        # And keep a reference of the index of the previous element
+        # Mantém uma referência do índice do elemento anterior
         j = i - 1
-        # Move all items of the sorted segment forward if they are larger than
-        # the item to insert
+        # Move todos os elementos do segmento ordenado 
+        # para frente, caso eles sejam
+        # maiores que o item que está sendo inserido
         while j >= 0 and nums[j] > item_to_insert:
             nums[j + 1] = nums[j]
             j -= 1
-        # Insert the item
+        # Insere o item
         nums[j + 1] = item_to_insert
 
 

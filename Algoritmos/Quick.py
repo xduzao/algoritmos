@@ -1,10 +1,7 @@
-# There are different ways to do a Quick Sort partition, this implements the
-# Hoare partition scheme. Tony Hoare also created the Quick Sort algorithm.
+# Existem diferentes formas de particionar o Quick Sort,
+# essa é a implementação do Tony Hoare, criador do algoritmo.
 def partition(nums, low, high):
-    # We select the middle element to be the pivot. Some implementations select
-    # the first element or the last element. Sometimes the median value becomes
-    # the pivot, or a random one. There are many more strategies that can be
-    # chosen or created.
+    # Seleciona-se o elemento do meio para ser o pivô.
     pivot = nums[(low + high) // 2]
     i = low - 1
     j = high + 1
@@ -20,16 +17,19 @@ def partition(nums, low, high):
         if i >= j:
             return j
 
-        # If an element at i (on the left of the pivot) is larger than the
-        # element at j (on right right of the pivot), then swap them
+        # Se um elemento em i (à esquerda do pivô) 
+        # é maior que o elemento em j (à direita), 
+        # então é feita a troca
         nums[i], nums[j] = nums[j], nums[i]
 
 
 def quick_sort(nums):
-    # Create a helper function that will be called recursively
+    
+    # Função auxiliar que será chamada recursivamente
     def _quick_sort(items, low, high):
         if low < high:
-            # This is the index after the pivot, where our lists are split
+            # Este é o índice depois do pivô, 
+            # onde a lista é dividida
             split_index = partition(items, low, high)
             _quick_sort(items, low, split_index)
             _quick_sort(items, split_index + 1, high)

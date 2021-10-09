@@ -1,13 +1,13 @@
 def bubble_sort(nums):
-    # We set swapped to True so the loop looks runs at least once
+    # Define swapped como True para que o loop seja executado pelo menos um vez
     swapped = True
     while swapped:
         swapped = False
         for i in range(len(nums) - 1):
             if nums[i] > nums[i + 1]:
-                # Swap the elements
+                # Swap dos elementos
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
-                # Set the flag to True so we'll loop again
+                # Define swapped como true para que o loop seja executado novamente
                 swapped = True
 
 
